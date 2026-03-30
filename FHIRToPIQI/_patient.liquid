@@ -1,6 +1,7 @@
 "demographics": {
   {% assign identifier = patient.identifier | first %}
   "patientIdentifier": "{{ identifier.value }}",
+  {% include 'EMI/patient_emi' -%}
   "birthSex": {
   {% assign birth_sex_ext = msg.extension | where: "url", "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex" | first %}
   {% if birth_sex_ext == nil or birth_sex_ext == empty %}

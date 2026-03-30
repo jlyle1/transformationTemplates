@@ -164,4 +164,5 @@
   {% assign medDate = med.authoredOn %}
 {% endif %}
 "statementDate": "{{ medDate }}",
+{% include 'EMI/medication_emi' -%}
 },

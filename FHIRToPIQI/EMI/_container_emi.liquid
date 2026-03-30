@@ -1,0 +1,31 @@
+"container": {
+  "effectiveDate": "{{ bundle.timestamp }}",
+  "sourceIdentifier": "{{ bundle.meta.source }}",
+  {% assign horizon_ext = bundle.extension | where: "url", "http://va.gov/fhir/emi/StructureDefinition/status-horizon" | first %}
+  {% if horizon_ext.valueQuantity %}
+  "statusHorizonValue": "{{ horizon_ext.valueQuantity.value }}",
+  "statusHorizonUnit": {
+    "codings": [
+      {
+        "system": "{{ horizon_ext.valueQuantity.system }}",
+        "code": "{{ horizon_ext.valueQuantity.code }}",
+        "display": "{{ horizon_ext.valueQuantity.unit }}"
+      }
+    ],
+    "text": "{{ horizon_ext.valueQuantity.unit }}"
+  },
+  {% else %}
+  "statusHorizonValue": "180",
+  "statusHorizonUnit": {
+    "codings": [
+      {
+        "system": "http://unitsofmeasure.org",
+        "code": "d",
+        "display": "days"
+      }
+    ],
+    "text": "days"
+  },
+  {% endif %}
+  "allergyInformationPresent": "{% if allergies.size > 0 %}true{% else %}false{% endif %}"
+},

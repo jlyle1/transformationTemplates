@@ -1,0 +1,620 @@
+{
+  "resourceType" : "Bundle",
+  "id" : "medication-bundle-example",
+  "meta" : {
+    "source" : "http://va.gov/fhir/sid/sta3n/520",
+    "profile" : ["http://va.gov/fhir/emi/StructureDefinition/emi-medication-bundle"]
+  },
+  "language" : "en",
+  "type" : "collection",
+  "timestamp" : "2024-04-15T10:00:00-05:00",
+  "entry" : [{
+    "fullUrl" : "http://va.gov/fhir/emi/Patient/testpatient1-patient",
+    "resource" : {
+      "resourceType" : "Patient",
+      "id" : "testpatient1-patient",
+      "meta" : {
+        "source" : "http://va.gov/fhir/sid/sta3n/520",
+        "profile" : ["http://va.gov/fhir/emi/StructureDefinition/emi-patient"]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_testpatient1-patient\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Patient testpatient1-patient</b></p><a name=\"testpatient1-patient\"> </a><a name=\"hctestpatient1-patient\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Information Source: <a href=\"http://va.gov/fhir/sid/sta3n/520\">http://va.gov/fhir/sid/sta3n/520</a></p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-emi-patient.html\">EMI Patient</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">John Robert Smith (official) Male, DoB: 1960-05-15 ( urn:oid:2.16.840.1.113883.4.349#VAICN#1012345678V123456)</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Ways to contact the Patient\">Contact Detail</td><td colspan=\"3\">123 Main Street Anytown VA 12345 (home)</td></tr></table></div>"
+      },
+      "identifier" : [{
+        "system" : "urn:oid:2.16.840.1.113883.4.349",
+        "value" : "1012345678V123456"
+      }],
+      "name" : [{
+        "use" : "official",
+        "family" : "Smith",
+        "given" : ["John",
+        "Robert"]
+      }],
+      "gender" : "male",
+      "birthDate" : "1960-05-15",
+      "address" : [{
+        "use" : "home",
+        "line" : ["123 Main Street"],
+        "city" : "Anytown",
+        "state" : "VA",
+        "postalCode" : "12345"
+      }]
+    }
+  },
+  {
+    "fullUrl" : "http://va.gov/fhir/emi/AllergyIntolerance/allergy-penicillin-example",
+    "resource" : {
+      "resourceType" : "AllergyIntolerance",
+      "id" : "allergy-penicillin-example",
+      "meta" : {
+        "source" : "http://va.gov/fhir/sid/sta3n/520",
+        "profile" : ["http://va.gov/fhir/emi/StructureDefinition/emi-allergyintolerance"]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"AllergyIntolerance_allergy-penicillin-example\"> </a><p class=\"res-header-id\"><b>Generated Narrative: AllergyIntolerance allergy-penicillin-example</b></p><a name=\"allergy-penicillin-example\"> </a><a name=\"hcallergy-penicillin-example\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Information Source: <a href=\"http://va.gov/fhir/sid/sta3n/520\">http://va.gov/fhir/sid/sta3n/520</a></p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-emi-allergyintolerance.html\">EMI AllergyIntolerance</a></p></div><p><b>clinicalStatus</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical active}\">Active</span></p><p><b>verificationStatus</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/allergyintolerance-verification confirmed}\">Confirmed</span></p><p><b>type</b>: Allergy</p><p><b>category</b>: Medication</p><p><b>code</b>: <span title=\"Codes:{http://www.nlm.nih.gov/research/umls/rxnorm 7984}\">Penicillin</span></p><p><b>patient</b>: <a href=\"Patient-testpatient1-patient.html\">John Robert Smith (official) Male, DoB: 1960-05-15 ( urn:oid:2.16.840.1.113883.4.349#VAICN#1012345678V123456)</a></p><h3>Reactions</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Manifestation</b></td><td><b>Severity</b></td></tr><tr><td style=\"display: none\">*</td><td><span title=\"Codes:{http://snomed.info/sct 271807003}\">Rash</span></td><td>Moderate</td></tr></table></div>"
+      },
+      "clinicalStatus" : {
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+          "code" : "active"
+        }]
+      },
+      "verificationStatus" : {
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+          "code" : "confirmed"
+        }]
+      },
+      "type" : "allergy",
+      "category" : ["medication"],
+      "code" : {
+        "coding" : [{
+          "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code" : "7984",
+          "display" : "Penicillin V"
+        }],
+        "text" : "Penicillin"
+      },
+      "patient" : {
+        "reference" : "Patient/testpatient1-patient"
+      },
+      "reaction" : [{
+        "manifestation" : [{
+          "coding" : [{
+            "system" : "http://snomed.info/sct",
+            "code" : "271807003",
+            "display" : "Eruption of skin"
+          }],
+          "text" : "Rash"
+        }],
+        "severity" : "moderate"
+      }]
+    }
+  },
+  {
+    "fullUrl" : "http://va.gov/fhir/emi/AllergyIntolerance/allergy-nsaid-example",
+    "resource" : {
+      "resourceType" : "AllergyIntolerance",
+      "id" : "allergy-nsaid-example",
+      "meta" : {
+        "source" : "http://va.gov/fhir/sid/sta3n/520",
+        "profile" : ["http://va.gov/fhir/emi/StructureDefinition/emi-allergyintolerance"]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"AllergyIntolerance_allergy-nsaid-example\"> </a><p class=\"res-header-id\"><b>Generated Narrative: AllergyIntolerance allergy-nsaid-example</b></p><a name=\"allergy-nsaid-example\"> </a><a name=\"hcallergy-nsaid-example\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Information Source: <a href=\"http://va.gov/fhir/sid/sta3n/520\">http://va.gov/fhir/sid/sta3n/520</a></p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-emi-allergyintolerance.html\">EMI AllergyIntolerance</a></p></div><p><b>clinicalStatus</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical active}\">Active</span></p><p><b>verificationStatus</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/allergyintolerance-verification confirmed}\">Confirmed</span></p><p><b>type</b>: Intolerance</p><p><b>category</b>: Medication</p><p><b>code</b>: <span title=\"Codes:{http://www.nlm.nih.gov/research/umls/rxnorm 5640}\">Ibuprofen</span></p><p><b>patient</b>: <a href=\"Patient-testpatient1-patient.html\">John Robert Smith (official) Male, DoB: 1960-05-15 ( urn:oid:2.16.840.1.113883.4.349#VAICN#1012345678V123456)</a></p><h3>Reactions</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Manifestation</b></td><td><b>Severity</b></td></tr><tr><td style=\"display: none\">*</td><td><span title=\"Codes:{http://snomed.info/sct 422587007}\">GI upset</span></td><td>Mild</td></tr></table></div>"
+      },
+      "clinicalStatus" : {
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+          "code" : "active"
+        }]
+      },
+      "verificationStatus" : {
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+          "code" : "confirmed"
+        }]
+      },
+      "type" : "intolerance",
+      "category" : ["medication"],
+      "code" : {
+        "coding" : [{
+          "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code" : "5640",
+          "display" : "Ibuprofen"
+        }],
+        "text" : "Ibuprofen"
+      },
+      "patient" : {
+        "reference" : "Patient/testpatient1-patient"
+      },
+      "reaction" : [{
+        "manifestation" : [{
+          "coding" : [{
+            "system" : "http://snomed.info/sct",
+            "code" : "422587007",
+            "display" : "Nausea"
+          }],
+          "text" : "GI upset"
+        }],
+        "severity" : "mild"
+      }]
+    }
+  },
+  {
+    "fullUrl" : "http://va.gov/fhir/emi/MedicationRequest/medicationrequest-outpatient-lisinopril",
+    "resource" : {
+      "resourceType" : "MedicationRequest",
+      "id" : "medicationrequest-outpatient-lisinopril",
+      "meta" : {
+        "source" : "http://va.gov/fhir/sid/sta3n/520",
+        "profile" : ["http://va.gov/fhir/emi/StructureDefinition/emi-outpatient-medicationrequest"]
+      },
+      "text" : {
+        "status" : "extensions",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"MedicationRequest_medicationrequest-outpatient-lisinopril\"> </a><p class=\"res-header-id\"><b>Generated Narrative: MedicationRequest medicationrequest-outpatient-lisinopril</b></p><a name=\"medicationrequest-outpatient-lisinopril\"> </a><a name=\"hcmedicationrequest-outpatient-lisinopril\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Information Source: <a href=\"http://va.gov/fhir/sid/sta3n/520\">http://va.gov/fhir/sid/sta3n/520</a></p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-emi-outpatient-medicationrequest.html\">EMI Outpatient MedicationRequest</a></p></div><p><b>Date Last Dispensed</b>: 2026-01-05</p><p><b>Remaining Fills</b>: 2</p><p><b>identifier</b>: <a href=\"NamingSystem-vista-rx-number-naming-system.html\" title=\"Prescription number from VistA File 52 (PRESCRIPTION file), field .01.\">VistARxNumber</a>/12345678</p><p><b>status</b>: Active</p><p><b>intent</b>: Order</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/medicationrequest-category outpatient}\">Outpatient</span></p><p><b>medication</b>: <span title=\"Codes:{http://www.nlm.nih.gov/research/umls/rxnorm 314076}\">LISINOPRIL 10MG TAB</span></p><p><b>subject</b>: <a href=\"Patient-testpatient1-patient.html\">John Robert Smith (official) Male, DoB: 1960-05-15 ( urn:oid:2.16.840.1.113883.4.349#VAICN#1012345678V123456)</a></p><p><b>supportingInformation</b>: <a href=\"Procedure-counseling-procedure-example.html\">Procedure Medication education (procedure)</a></p><p><b>authoredOn</b>: 2025-10-01</p><p><b>requester</b>: <a href=\"Practitioner-practitioner-janedoe.html\">Practitioner Jane Doe </a></p><p><b>reasonCode</b>: <span title=\"Codes:{http://snomed.info/sct 38341003}\">Hypertension</span></p><blockquote><p><b>dosageInstruction</b></p><p><b>text</b>: TAKE ONE TABLET BY MOUTH EVERY DAY FOR BLOOD PRESSURE</p><p><b>timing</b>: Once per 1 day</p><p><b>route</b>: <span title=\"Codes:{http://snomed.info/sct 26643006}\">Oral route</span></p><h3>DoseAndRates</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Dose[x]</b></td></tr><tr><td style=\"display: none\">*</td><td>1 tablet</td></tr></table></blockquote><blockquote><p><b>dispenseRequest</b></p><p><b>validityPeriod</b>: 2025-10-01 --&gt; 2026-10-01</p><p><b>numberOfRepeatsAllowed</b>: 3</p><p><b>quantity</b>: 90 tablet</p><h3>ExpectedSupplyDurations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Value</b></td><td><b>Unit</b></td><td><b>System</b></td><td><b>Code</b></td></tr><tr><td style=\"display: none\">*</td><td>90</td><td>days</td><td><a href=\"http://terminology.hl7.org/6.0.2/CodeSystem-v3-ucum.html\">http://unitsofmeasure.org</a></td><td>d</td></tr></table></blockquote></div>"
+      },
+      "extension" : [{
+        "url" : "http://va.gov/fhir/emi/StructureDefinition/emi-date-last-dispensed",
+        "valueDateTime" : "2026-01-05"
+      },
+      {
+        "url" : "http://va.gov/fhir/emi/StructureDefinition/emi-remaining-fills",
+        "valueUnsignedInt" : 2
+      }],
+      "identifier" : [{
+        "system" : "http://va.gov/fhir/sid/648/52-.01",
+        "value" : "12345678"
+      }],
+      "status" : "active",
+      "intent" : "order",
+      "category" : [{
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+          "code" : "outpatient"
+        }]
+      }],
+      "medicationCodeableConcept" : {
+        "coding" : [{
+          "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code" : "314076",
+          "display" : "lisinopril 10 MG Oral Tablet"
+        }],
+        "text" : "LISINOPRIL 10MG TAB"
+      },
+      "subject" : {
+        "reference" : "Patient/testpatient1-patient"
+      },
+      "supportingInformation" : [{
+        "reference" : "Procedure/counseling-procedure-example"
+      }],
+      "authoredOn" : "2025-10-01",
+      "requester" : {
+        "reference" : "Practitioner/practitioner-janedoe"
+      },
+      "reasonCode" : [{
+        "coding" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "38341003",
+          "display" : "Hypertensive disorder"
+        }],
+        "text" : "Hypertension"
+      }],
+      "dosageInstruction" : [{
+        "text" : "TAKE ONE TABLET BY MOUTH EVERY DAY FOR BLOOD PRESSURE",
+        "timing" : {
+          "repeat" : {
+            "frequency" : 1,
+            "period" : 1,
+            "periodUnit" : "d"
+          }
+        },
+        "route" : {
+          "coding" : [{
+            "system" : "http://snomed.info/sct",
+            "code" : "26643006",
+            "display" : "Oral route"
+          }]
+        },
+        "doseAndRate" : [{
+          "doseQuantity" : {
+            "value" : 1,
+            "unit" : "tablet"
+          }
+        }]
+      }],
+      "dispenseRequest" : {
+        "validityPeriod" : {
+          "start" : "2025-10-01",
+          "end" : "2026-10-01"
+        },
+        "numberOfRepeatsAllowed" : 3,
+        "quantity" : {
+          "value" : 90,
+          "unit" : "tablet"
+        },
+        "expectedSupplyDuration" : {
+          "value" : 90,
+          "unit" : "days",
+          "system" : "http://unitsofmeasure.org",
+          "code" : "d"
+        }
+      }
+    }
+  },
+  {
+    "fullUrl" : "http://va.gov/fhir/emi/MedicationRequest/medicationrequest-outpatient-metformin",
+    "resource" : {
+      "resourceType" : "MedicationRequest",
+      "id" : "medicationrequest-outpatient-metformin",
+      "meta" : {
+        "source" : "http://va.gov/fhir/sid/sta3n/520",
+        "profile" : ["http://va.gov/fhir/emi/StructureDefinition/emi-outpatient-medicationrequest"]
+      },
+      "text" : {
+        "status" : "extensions",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"MedicationRequest_medicationrequest-outpatient-metformin\"> </a><p class=\"res-header-id\"><b>Generated Narrative: MedicationRequest medicationrequest-outpatient-metformin</b></p><a name=\"medicationrequest-outpatient-metformin\"> </a><a name=\"hcmedicationrequest-outpatient-metformin\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Information Source: <a href=\"http://va.gov/fhir/sid/sta3n/520\">http://va.gov/fhir/sid/sta3n/520</a></p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-emi-outpatient-medicationrequest.html\">EMI Outpatient MedicationRequest</a></p></div><p><b>Date Last Dispensed</b>: 2025-12-20</p><p><b>Remaining Fills</b>: 1</p><p><b>identifier</b>: <a href=\"NamingSystem-vista-rx-number-naming-system.html\" title=\"Prescription number from VistA File 52 (PRESCRIPTION file), field .01.\">VistARxNumber</a>/12345679</p><p><b>status</b>: Active</p><p><b>intent</b>: Order</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/medicationrequest-category outpatient}\">Outpatient</span></p><p><b>medication</b>: <span title=\"Codes:{http://www.nlm.nih.gov/research/umls/rxnorm 861004}\">METFORMIN 1000MG TAB</span></p><p><b>subject</b>: <a href=\"Patient-testpatient1-patient.html\">John Robert Smith (official) Male, DoB: 1960-05-15 ( urn:oid:2.16.840.1.113883.4.349#VAICN#1012345678V123456)</a></p><p><b>supportingInformation</b>: <a href=\"Procedure-counseling-procedure-notdone-example.html\">Procedure Medication education (procedure)</a></p><p><b>authoredOn</b>: 2025-09-15</p><p><b>requester</b>: <a href=\"Practitioner-practitioner-janedoe.html\">Practitioner Jane Doe </a></p><p><b>reasonCode</b>: <span title=\"Codes:{http://snomed.info/sct 73211009}\">Diabetes</span></p><blockquote><p><b>dosageInstruction</b></p><p><b>text</b>: TAKE ONE TABLET BY MOUTH TWICE DAILY WITH MEALS</p><p><b>timing</b>: 2 per 1 day</p><p><b>route</b>: <span title=\"Codes:{http://snomed.info/sct 26643006}\">Oral route</span></p><h3>DoseAndRates</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Dose[x]</b></td></tr><tr><td style=\"display: none\">*</td><td>1 tablet</td></tr></table></blockquote><blockquote><p><b>dispenseRequest</b></p><p><b>validityPeriod</b>: 2025-09-15 --&gt; 2026-09-15</p><p><b>numberOfRepeatsAllowed</b>: 3</p><p><b>quantity</b>: 180 tablet</p><h3>ExpectedSupplyDurations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Value</b></td><td><b>Unit</b></td><td><b>System</b></td><td><b>Code</b></td></tr><tr><td style=\"display: none\">*</td><td>90</td><td>days</td><td><a href=\"http://terminology.hl7.org/6.0.2/CodeSystem-v3-ucum.html\">http://unitsofmeasure.org</a></td><td>d</td></tr></table></blockquote></div>"
+      },
+      "extension" : [{
+        "url" : "http://va.gov/fhir/emi/StructureDefinition/emi-date-last-dispensed",
+        "valueDateTime" : "2025-12-20"
+      },
+      {
+        "url" : "http://va.gov/fhir/emi/StructureDefinition/emi-remaining-fills",
+        "valueUnsignedInt" : 1
+      }],
+      "identifier" : [{
+        "system" : "http://va.gov/fhir/sid/648/52-.01",
+        "value" : "12345679"
+      }],
+      "status" : "active",
+      "intent" : "order",
+      "category" : [{
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+          "code" : "outpatient"
+        }]
+      }],
+      "medicationCodeableConcept" : {
+        "coding" : [{
+          "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code" : "861004",
+          "display" : "metformin hydrochloride 1000 MG Oral Tablet"
+        }],
+        "text" : "METFORMIN 1000MG TAB"
+      },
+      "subject" : {
+        "reference" : "Patient/testpatient1-patient"
+      },
+      "supportingInformation" : [{
+        "reference" : "Procedure/counseling-procedure-notdone-example"
+      }],
+      "authoredOn" : "2025-09-15",
+      "requester" : {
+        "reference" : "Practitioner/practitioner-janedoe"
+      },
+      "reasonCode" : [{
+        "coding" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "73211009",
+          "display" : "Diabetes mellitus"
+        }],
+        "text" : "Diabetes"
+      }],
+      "dosageInstruction" : [{
+        "text" : "TAKE ONE TABLET BY MOUTH TWICE DAILY WITH MEALS",
+        "timing" : {
+          "repeat" : {
+            "frequency" : 2,
+            "period" : 1,
+            "periodUnit" : "d"
+          }
+        },
+        "route" : {
+          "coding" : [{
+            "system" : "http://snomed.info/sct",
+            "code" : "26643006",
+            "display" : "Oral route"
+          }]
+        },
+        "doseAndRate" : [{
+          "doseQuantity" : {
+            "value" : 1,
+            "unit" : "tablet"
+          }
+        }]
+      }],
+      "dispenseRequest" : {
+        "validityPeriod" : {
+          "start" : "2025-09-15",
+          "end" : "2026-09-15"
+        },
+        "numberOfRepeatsAllowed" : 3,
+        "quantity" : {
+          "value" : 180,
+          "unit" : "tablet"
+        },
+        "expectedSupplyDuration" : {
+          "value" : 90,
+          "unit" : "days",
+          "system" : "http://unitsofmeasure.org",
+          "code" : "d"
+        }
+      }
+    }
+  },
+  {
+    "fullUrl" : "http://va.gov/fhir/emi/MedicationStatement/medicationstatement-external-example",
+    "resource" : {
+      "resourceType" : "MedicationStatement",
+      "id" : "medicationstatement-external-example",
+      "meta" : {
+        "source" : "http://va.gov/fhir/sid/sta3n/520",
+        "profile" : ["http://va.gov/fhir/emi/StructureDefinition/emi-external-medicationstatement"]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"MedicationStatement_medicationstatement-external-example\"> </a><p class=\"res-header-id\"><b>Generated Narrative: MedicationStatement medicationstatement-external-example</b></p><a name=\"medicationstatement-external-example\"> </a><a name=\"hcmedicationstatement-external-example\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Information Source: <a href=\"http://va.gov/fhir/sid/sta3n/520\">http://va.gov/fhir/sid/sta3n/520</a></p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-emi-external-medicationstatement.html\">EMI External MedicationStatement</a></p></div><p><b>status</b>: Active</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/medication-statement-category community}\">Community</span></p><p><b>medication</b>: <span title=\"Codes:{http://www.nlm.nih.gov/research/umls/rxnorm 198436}\">ACETAMINOPHEN 325MG CAP (OTC)</span></p><p><b>subject</b>: <a href=\"Patient-testpatient1-patient.html\">John Robert Smith (official) Male, DoB: 1960-05-15 ( urn:oid:2.16.840.1.113883.4.349#VAICN#1012345678V123456)</a></p><p><b>dateAsserted</b>: 2024-01-20</p><p><b>informationSource</b>: <a href=\"Patient-testpatient1-patient.html\">Patient-reported</a></p><p><b>reasonCode</b>: <span title=\"Codes:\">Pain relief</span></p><h3>Dosages</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Text</b></td><td><b>Timing</b></td><td><b>Route</b></td></tr><tr><td style=\"display: none\">*</td><td>Take 1 tablet daily</td><td>Once per 1 day</td><td><span title=\"Codes:{http://snomed.info/sct 26643006}\">Oral route</span></td></tr></table></div>"
+      },
+      "status" : "active",
+      "category" : {
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+          "code" : "community"
+        }]
+      },
+      "medicationCodeableConcept" : {
+        "coding" : [{
+          "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code" : "198436",
+          "display" : "acetaminophen 325 MG Oral Capsule"
+        }],
+        "text" : "ACETAMINOPHEN 325MG CAP (OTC)"
+      },
+      "subject" : {
+        "reference" : "Patient/testpatient1-patient"
+      },
+      "dateAsserted" : "2024-01-20",
+      "informationSource" : {
+        "reference" : "Patient/testpatient1-patient",
+        "display" : "Patient-reported"
+      },
+      "reasonCode" : [{
+        "text" : "Pain relief"
+      }],
+      "dosage" : [{
+        "text" : "Take 1 tablet daily",
+        "timing" : {
+          "repeat" : {
+            "frequency" : 1,
+            "period" : 1,
+            "periodUnit" : "d"
+          }
+        },
+        "route" : {
+          "coding" : [{
+            "system" : "http://snomed.info/sct",
+            "code" : "26643006",
+            "display" : "Oral route"
+          }]
+        }
+      }]
+    }
+  },
+  {
+    "fullUrl" : "http://va.gov/fhir/emi/MedicationStatement/medicationstatement-external-herbal-example",
+    "resource" : {
+      "resourceType" : "MedicationStatement",
+      "id" : "medicationstatement-external-herbal-example",
+      "meta" : {
+        "source" : "http://va.gov/fhir/sid/sta3n/520",
+        "profile" : ["http://va.gov/fhir/emi/StructureDefinition/emi-external-medicationstatement"]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"MedicationStatement_medicationstatement-external-herbal-example\"> </a><p class=\"res-header-id\"><b>Generated Narrative: MedicationStatement medicationstatement-external-herbal-example</b></p><a name=\"medicationstatement-external-herbal-example\"> </a><a name=\"hcmedicationstatement-external-herbal-example\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Information Source: <a href=\"http://va.gov/fhir/sid/sta3n/520\">http://va.gov/fhir/sid/sta3n/520</a></p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-emi-external-medicationstatement.html\">EMI External MedicationStatement</a></p></div><p><b>status</b>: Active</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/medication-statement-category community}\">Community</span></p><p><b>medication</b>: <span title=\"Codes:\">Fish Oil 1000mg</span></p><p><b>subject</b>: <a href=\"Patient-testpatient1-patient.html\">John Robert Smith (official) Male, DoB: 1960-05-15 ( urn:oid:2.16.840.1.113883.4.349#VAICN#1012345678V123456)</a></p><p><b>dateAsserted</b>: 2024-02-15</p><p><b>informationSource</b>: <a href=\"Patient-testpatient1-patient.html\">John Robert Smith (official) Male, DoB: 1960-05-15 ( urn:oid:2.16.840.1.113883.4.349#VAICN#1012345678V123456)</a></p><p><b>reasonCode</b>: <span title=\"Codes:\">Cholesterol support</span></p><h3>Dosages</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Text</b></td><td><b>Route</b></td></tr><tr><td style=\"display: none\">*</td><td>Take 2 capsules daily with food</td><td><span title=\"Codes:{http://snomed.info/sct 26643006}\">Oral route</span></td></tr></table></div>"
+      },
+      "status" : "active",
+      "category" : {
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+          "code" : "community"
+        }]
+      },
+      "medicationCodeableConcept" : {
+        "text" : "Fish Oil 1000mg"
+      },
+      "subject" : {
+        "reference" : "Patient/testpatient1-patient"
+      },
+      "dateAsserted" : "2024-02-15",
+      "informationSource" : {
+        "reference" : "Patient/testpatient1-patient"
+      },
+      "reasonCode" : [{
+        "text" : "Cholesterol support"
+      }],
+      "dosage" : [{
+        "text" : "Take 2 capsules daily with food",
+        "route" : {
+          "coding" : [{
+            "system" : "http://snomed.info/sct",
+            "code" : "26643006",
+            "display" : "Oral route"
+          }]
+        }
+      }]
+    }
+  },
+  {
+    "fullUrl" : "http://va.gov/fhir/emi/MedicationDispense/medicationdispense-example",
+    "resource" : {
+      "resourceType" : "MedicationDispense",
+      "id" : "medicationdispense-example",
+      "meta" : {
+        "source" : "http://va.gov/fhir/sid/sta3n/520",
+        "profile" : ["http://va.gov/fhir/emi/StructureDefinition/emi-medicationdispense"]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"MedicationDispense_medicationdispense-example\"> </a><p class=\"res-header-id\"><b>Generated Narrative: MedicationDispense medicationdispense-example</b></p><a name=\"medicationdispense-example\"> </a><a name=\"hcmedicationdispense-example\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Information Source: <a href=\"http://va.gov/fhir/sid/sta3n/520\">http://va.gov/fhir/sid/sta3n/520</a></p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-emi-medicationdispense.html\">EMI MedicationDispense</a></p></div><p><b>status</b>: Completed</p><p><b>medication</b>: <span title=\"Codes:{http://www.nlm.nih.gov/research/umls/rxnorm 314076}\">LISINOPRIL 10MG TAB</span></p><p><b>subject</b>: <a href=\"Patient-testpatient1-patient.html\">John Robert Smith (official) Male, DoB: 1960-05-15 ( urn:oid:2.16.840.1.113883.4.349#VAICN#1012345678V123456)</a></p><h3>Performers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Actor</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Organization-pharmacy-example.html\">Organization VA Medical Center Pharmacy - Building 1</a></td></tr></table><p><b>authorizingPrescription</b>: <a href=\"MedicationRequest-medicationrequest-outpatient-lisinopril.html\">MedicationRequest: extension = 2026-01-05,2; identifier = http://va.gov/fhir/sid/648/52-.01#VistARxNumber#12345678; status = active; intent = order; category = Outpatient; medication[x] = lisinopril 10 MG Oral Tablet; authoredOn = 2025-10-01; reasonCode = Hypertensive disorder</a></p><p><b>quantity</b>: 90 tablet</p><p><b>daysSupply</b>: 90 days<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  coded = 'd')</span></p><p><b>whenPrepared</b>: 2024-04-01 10:30:00-0500</p><p><b>whenHandedOver</b>: 2024-04-02 14:15:00-0500</p></div>"
+      },
+      "status" : "completed",
+      "medicationCodeableConcept" : {
+        "coding" : [{
+          "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code" : "314076",
+          "display" : "lisinopril 10 MG Oral Tablet"
+        }],
+        "text" : "LISINOPRIL 10MG TAB"
+      },
+      "subject" : {
+        "reference" : "Patient/testpatient1-patient"
+      },
+      "performer" : [{
+        "actor" : {
+          "reference" : "Organization/pharmacy-example"
+        }
+      }],
+      "authorizingPrescription" : [{
+        "reference" : "MedicationRequest/medicationrequest-outpatient-lisinopril"
+      }],
+      "quantity" : {
+        "value" : 90,
+        "unit" : "tablet"
+      },
+      "daysSupply" : {
+        "value" : 90,
+        "unit" : "days",
+        "system" : "http://unitsofmeasure.org",
+        "code" : "d"
+      },
+      "whenPrepared" : "2024-04-01T10:30:00-05:00",
+      "whenHandedOver" : "2024-04-02T14:15:00-05:00"
+    }
+  },
+  {
+    "fullUrl" : "http://va.gov/fhir/emi/Procedure/counseling-procedure-example",
+    "resource" : {
+      "resourceType" : "Procedure",
+      "id" : "counseling-procedure-example",
+      "meta" : {
+        "source" : "http://va.gov/fhir/sid/sta3n/520",
+        "profile" : ["http://va.gov/fhir/emi/StructureDefinition/emi-medication-counseling-procedure"]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Procedure_counseling-procedure-example\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Procedure counseling-procedure-example</b></p><a name=\"counseling-procedure-example\"> </a><a name=\"hccounseling-procedure-example\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Information Source: <a href=\"http://va.gov/fhir/sid/sta3n/520\">http://va.gov/fhir/sid/sta3n/520</a></p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-emi-medication-counseling-procedure.html\">EMI Medication Counseling Procedure</a></p></div><p><b>status</b>: Completed</p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 967006}\">Medication education (procedure)</span></p><p><b>subject</b>: <a href=\"Patient-testpatient1-patient.html\">John Robert Smith (official) Male, DoB: 1960-05-15 ( urn:oid:2.16.840.1.113883.4.349#VAICN#1012345678V123456)</a></p><p><b>performed</b>: 2024-01-15 11:30:00-0500</p><h3>Performers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Actor</b></td></tr><tr><td style=\"display: none\">*</td><td>VA Pharmacist</td></tr></table><p><b>outcome</b>: <span title=\"Codes:{http://snomed.info/sct 385669000}\">Successful</span></p></div>"
+      },
+      "status" : "completed",
+      "code" : {
+        "coding" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "967006",
+          "display" : "Medication education (procedure)"
+        }]
+      },
+      "subject" : {
+        "reference" : "Patient/testpatient1-patient"
+      },
+      "performedDateTime" : "2024-01-15T11:30:00-05:00",
+      "performer" : [{
+        "actor" : {
+          "display" : "VA Pharmacist"
+        }
+      }],
+      "outcome" : {
+        "coding" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "385669000",
+          "display" : "Successful"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "http://va.gov/fhir/emi/Procedure/counseling-procedure-notdone-example",
+    "resource" : {
+      "resourceType" : "Procedure",
+      "id" : "counseling-procedure-notdone-example",
+      "meta" : {
+        "source" : "http://va.gov/fhir/sid/sta3n/520",
+        "profile" : ["http://va.gov/fhir/emi/StructureDefinition/emi-medication-counseling-procedure"]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Procedure_counseling-procedure-notdone-example\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Procedure counseling-procedure-notdone-example</b></p><a name=\"counseling-procedure-notdone-example\"> </a><a name=\"hccounseling-procedure-notdone-example\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Information Source: <a href=\"http://va.gov/fhir/sid/sta3n/520\">http://va.gov/fhir/sid/sta3n/520</a></p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-emi-medication-counseling-procedure.html\">EMI Medication Counseling Procedure</a></p></div><p><b>status</b>: Not Done</p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 967006}\">Medication education (procedure)</span></p><p><b>subject</b>: <a href=\"Patient-testpatient1-patient.html\">John Robert Smith (official) Male, DoB: 1960-05-15 ( urn:oid:2.16.840.1.113883.4.349#VAICN#1012345678V123456)</a></p><p><b>performed</b>: 2024-02-01 09:15:00-0500</p><h3>Performers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Actor</b></td></tr><tr><td style=\"display: none\">*</td><td>VA Pharmacist</td></tr></table><p><b>outcome</b>: <span title=\"Codes:{http://snomed.info/sct 385671000}\">Unsuccessful</span></p></div>"
+      },
+      "status" : "not-done",
+      "code" : {
+        "coding" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "967006",
+          "display" : "Medication education (procedure)"
+        }]
+      },
+      "subject" : {
+        "reference" : "Patient/testpatient1-patient"
+      },
+      "performedDateTime" : "2024-02-01T09:15:00-05:00",
+      "performer" : [{
+        "actor" : {
+          "display" : "VA Pharmacist"
+        }
+      }],
+      "outcome" : {
+        "coding" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "385671000",
+          "display" : "Unsuccessful"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "http://va.gov/fhir/emi/Organization/pharmacy-example",
+    "resource" : {
+      "resourceType" : "Organization",
+      "id" : "pharmacy-example",
+      "meta" : {
+        "source" : "http://va.gov/fhir/sid/sta3n/520",
+        "profile" : ["http://va.gov/fhir/emi/StructureDefinition/emi-pharmacy-organization"]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Organization_pharmacy-example\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Organization pharmacy-example</b></p><a name=\"pharmacy-example\"> </a><a name=\"hcpharmacy-example\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Information Source: <a href=\"http://va.gov/fhir/sid/sta3n/520\">http://va.gov/fhir/sid/sta3n/520</a></p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-emi-pharmacy-organization.html\">EMI Pharmacy Organization</a></p></div><p><b>active</b>: true</p><p><b>type</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-RoleCode OUTPHARM}\">outpatient pharmacy</span></p><p><b>name</b>: VA Medical Center Pharmacy - Building 1</p><p><b>telecom</b>: ph: 555-123-4567(Work), fax: 555-123-4568(Work)</p><p><b>address</b>: 100 Veterans Way Building 1, Room 101 Anytown VA 12345 USA (work)</p></div>"
+      },
+      "active" : true,
+      "type" : [{
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+          "code" : "OUTPHARM"
+        }]
+      }],
+      "name" : "VA Medical Center Pharmacy - Building 1",
+      "telecom" : [{
+        "system" : "phone",
+        "value" : "555-123-4567",
+        "use" : "work"
+      },
+      {
+        "system" : "fax",
+        "value" : "555-123-4568",
+        "use" : "work"
+      }],
+      "address" : [{
+        "use" : "work",
+        "type" : "physical",
+        "line" : ["100 Veterans Way",
+        "Building 1, Room 101"],
+        "city" : "Anytown",
+        "state" : "VA",
+        "postalCode" : "12345",
+        "country" : "USA"
+      }]
+    }
+  }]
+}

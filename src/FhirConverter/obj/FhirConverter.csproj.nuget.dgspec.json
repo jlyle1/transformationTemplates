@@ -1,0 +1,184 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\repos\\piqiframeworktransformationTemplates\\src\\FhirConverter\\FhirConverter.csproj": {}
+  },
+  "projects": {
+    "C:\\repos\\piqiframeworktransformationTemplates\\lib\\FHIR-Converter\\src\\Microsoft.Health.Fhir.Liquid.Converter\\Microsoft.Health.Fhir.Liquid.Converter.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\repos\\piqiframeworktransformationTemplates\\lib\\FHIR-Converter\\src\\Microsoft.Health.Fhir.Liquid.Converter\\Microsoft.Health.Fhir.Liquid.Converter.csproj",
+        "projectName": "Microsoft.Health.Fhir.Liquid.Converter",
+        "projectPath": "C:\\repos\\piqiframeworktransformationTemplates\\lib\\FHIR-Converter\\src\\Microsoft.Health.Fhir.Liquid.Converter\\Microsoft.Health.Fhir.Liquid.Converter.csproj",
+        "packagesPath": "C:\\Users\\JayLyle\\.nuget\\packages\\",
+        "outputPath": "C:\\repos\\piqiframeworktransformationTemplates\\lib\\FHIR-Converter\\src\\Microsoft.Health.Fhir.Liquid.Converter\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\repos\\piqiframeworktransformationTemplates\\lib\\FHIR-Converter\\NuGet.Config",
+          "C:\\repos\\piqiframeworktransformationTemplates\\NuGet.Config",
+          "C:\\Users\\JayLyle\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://microsofthealthoss.pkgs.visualstudio.com/FhirServer/_packaging/Public/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Antlr4.Runtime.Standard": {
+              "target": "Package",
+              "version": "[4.8.0, )"
+            },
+            "DotLiquid": {
+              "target": "Package",
+              "version": "[2.2.580, )"
+            },
+            "Ensure.That": {
+              "target": "Package",
+              "version": "[10.1.0, )"
+            },
+            "Microsoft.Extensions.Logging": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.Health.MeasurementUtility": {
+              "target": "Package",
+              "version": "[7.1.12, )"
+            },
+            "NJsonSchema": {
+              "target": "Package",
+              "version": "[10.7.2, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )",
+              "noWarn": [
+                "NU1605"
+              ]
+            },
+            "StyleCop.Analyzers": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.1.118, )"
+            },
+            "xunit.abstractions": {
+              "target": "Package",
+              "version": "[2.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.419/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\repos\\piqiframeworktransformationTemplates\\src\\FhirConverter\\FhirConverter.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\repos\\piqiframeworktransformationTemplates\\src\\FhirConverter\\FhirConverter.csproj",
+        "projectName": "FhirConverter",
+        "projectPath": "C:\\repos\\piqiframeworktransformationTemplates\\src\\FhirConverter\\FhirConverter.csproj",
+        "packagesPath": "C:\\Users\\JayLyle\\.nuget\\packages\\",
+        "outputPath": "C:\\repos\\piqiframeworktransformationTemplates\\src\\FhirConverter\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\repos\\piqiframeworktransformationTemplates\\NuGet.Config",
+          "C:\\Users\\JayLyle\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://microsofthealthoss.pkgs.visualstudio.com/FhirServer/_packaging/Public/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\repos\\piqiframeworktransformationTemplates\\lib\\FHIR-Converter\\src\\Microsoft.Health.Fhir.Liquid.Converter\\Microsoft.Health.Fhir.Liquid.Converter.csproj": {
+                "projectPath": "C:\\repos\\piqiframeworktransformationTemplates\\lib\\FHIR-Converter\\src\\Microsoft.Health.Fhir.Liquid.Converter\\Microsoft.Health.Fhir.Liquid.Converter.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.Extensions.Logging.Console": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.419/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

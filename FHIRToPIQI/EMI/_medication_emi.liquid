@@ -1,0 +1,40 @@
+"sourceCategory": {
+  {% if med.category[0].coding %}
+    "codings": [
+      {% for c in med.category[0].coding %}
+        {
+          {% include '_codableconcept' coding: c -%}
+        },
+      {% endfor %}
+    ],
+    "text": "{{ med.category[0].text | default: med.category[0].coding[0].display | default: med.category[0].coding[0].code }}"
+  {% endif %}
+},
+{% assign rx_id = med.identifier | first %}
+"prescriptionNumber": "{{ rx_id.value }}",
+"orderStatus": {
+  "codings": [
+    {
+      "code": "{{ med.status }}"
+    }
+  ],
+  "text": "{{ med.status }}"
+},
+{% assign last_disp_ext = med.extension | where: "url", "http://va.gov/fhir/emi/StructureDefinition/emi-date-last-dispensed" | first %}
+"lastDispensedDate": "{{ last_disp_ext.valueDateTime }}",
+"dispenseQuantity": "{{ med.dispenseRequest.quantity.value }}",
+"expectedDurationValue": "{{ med.dispenseRequest.expectedSupplyDuration.value }}",
+"expectedDurationUnit": {
+  {% if med.dispenseRequest.expectedSupplyDuration %}
+    "codings": [
+      {
+        "system": "{{ med.dispenseRequest.expectedSupplyDuration.system }}",
+        "code": "{{ med.dispenseRequest.expectedSupplyDuration.code }}",
+        "display": "{{ med.dispenseRequest.expectedSupplyDuration.unit }}"
+      }
+    ],
+    "text": "{{ med.dispenseRequest.expectedSupplyDuration.unit }}"
+  {% endif %}
+},
+{% assign rem_fills_ext = med.extension | where: "url", "http://va.gov/fhir/emi/StructureDefinition/emi-remaining-fills" | first %}
+"remainingFills": "{{ rem_fills_ext.valueUnsignedInt }}",

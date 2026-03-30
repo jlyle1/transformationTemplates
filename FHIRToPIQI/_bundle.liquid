@@ -59,6 +59,7 @@
 
 "messageID": "{{ patient.id }}",
 "patient": {
+  {% include 'EMI/container_emi' bundle: msg, allergies: allergies -%}
   {% include '_patient' msg: patient -%}
 
   {% if allergies.size > 0 %}
