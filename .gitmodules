@@ -1,0 +1,3 @@
+[submodule "lib/FHIR-Converter"]
+	path = lib/FHIR-Converter
+	url = https://github.com/microsoft/FHIR-Converter.git
