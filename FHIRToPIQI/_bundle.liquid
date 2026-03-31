@@ -19,6 +19,8 @@
 {% assign observations = resources | where: "resourceType", "Observation" %}
 {% assign specimens = resources | where: "resourceType", "Specimen" %}
 {% assign procedures = resources | where: "resourceType", "Procedure" %}
+{% assign practitioners = resources | where: "resourceType", "Practitioner" %}
+{% assign organizations = resources | where: "resourceType", "Organization" %}
 
 
 {% capture medReqRefsString %}
@@ -57,7 +59,15 @@
 {% endcapture %}
 {% assign medDispenseRefsString = medDispenseRefsString | strip | strip_newlines %}
 
-"messageID": "{{ patient.id }}",
+{% comment %} Build list of MedicationRequest IDs for filtering MedicationDispense duplicates {% endcomment %}
+{% capture medReqIdsString %}
+  {% for req in medRequests %}
+    MedicationRequest/{{ req.id }},urn:uuid:{{ req.id }},
+  {% endfor %}
+{% endcapture %}
+{% assign medReqIdsString = medReqIdsString | strip | strip_newlines %}
+
+"MessageID": "{{ patient.id }}",
 "patient": {
   {% include 'EMI/container_emi' bundle: msg, allergies: allergies -%}
   {% include '_patient' msg: patient -%}
@@ -82,22 +92,32 @@
   "medications":[
 	{% if medRequests.size > 0 %}
 	{% for med in medRequests %}
-	  {% include '_medication' med: med, type: "MedicationRequest", refs: medications -%}
+	  {% include '_medication' med: med, type: "MedicationRequest", refs: medications, procedures: procedures, practitioners: practitioners, organizations: organizations, dispenses: medDispense -%}
 	{% endfor %}
 	{% endif %}
 	{% if medStatements.size > 0 %}
 	{% for med in medStatements %}
-	  {% include '_medication' med: med, type: "MedicationStatement", refs: medications -%}
+	  {% include '_medication' med: med, type: "MedicationStatement", refs: medications, procedures: procedures, practitioners: practitioners, organizations: organizations, dispenses: medDispense -%}
 	{% endfor %}
 	{% endif %}
 	{% if medAdmin.size > 0 %}
 	{% for med in medAdmin %}
-	  {% include '_medication' med: med, type: "MedicationAdministration", refs: medications -%}
+	  {% include '_medication' med: med, type: "MedicationAdministration", refs: medications, procedures: procedures, practitioners: practitioners, organizations: organizations, dispenses: medDispense -%}
 	{% endfor %}
 	{% endif %}
 	{% if medDispense.size > 0 %}
 	{% for med in medDispense %}
-	  {% include '_medication' med: med, type: "MedicationDispense", refs: medications -%}
+	  {% comment %} Skip MedicationDispense if it has authorizingPrescription to a MedicationRequest {% endcomment %}
+	  {% assign hasMedReqAuth = false %}
+	  {% for auth in med.authorizingPrescription %}
+	    {% assign authRef = auth.reference | append: "," %}
+	    {% if medReqIdsString contains authRef %}
+	      {% assign hasMedReqAuth = true %}
+	    {% endif %}
+	  {% endfor %}
+	  {% unless hasMedReqAuth %}
+	    {% include '_medication' med: med, type: "MedicationDispense", refs: medications, procedures: procedures, practitioners: practitioners, organizations: organizations, dispenses: medDispense -%}
+	  {% endunless %}
 	{% endfor %}
 	{% endif %}
 	{% if medications.size > 0 %}

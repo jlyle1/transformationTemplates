@@ -1,4 +1,6 @@
 {
 "formatID": "FHIR JSON",
+"DataProviderID": "{{ msg.meta.source | default: 'FHIR' }}",
+"DataSourceID": "{{ msg.meta.source | default: 'FHIR' }}",
 {% include '_bundle' msg: msg -%}
 }

@@ -18,13 +18,16 @@
 	  {% endif %}
 	  {% if med.medicationCodeableConcept.coding %}
       "codings": [
-       
+
           {% for code in med.medicationCodeableConcept.coding %}
             {
 			  {% include '_codableconcept' coding: code -%}
             },
           {% endfor %}
       ],
+      "text": "{{ med.medicationCodeableConcept.text }}"
+	  {% elsif med.medicationCodeableConcept.text %}
+      "codings": [],
       "text": "{{ med.medicationCodeableConcept.text }}"
 	  {% endif %}
 	  {% if med.code %}
@@ -164,5 +167,5 @@
   {% assign medDate = med.authoredOn %}
 {% endif %}
 "statementDate": "{{ medDate }}",
-{% include 'EMI/medication_emi' -%}
+{% include 'EMI/medication_emi' med: med, procedures: procedures, practitioners: practitioners, organizations: organizations, dispenses: dispenses -%}
 },

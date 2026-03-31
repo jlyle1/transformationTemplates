@@ -38,3 +38,127 @@
 },
 {% assign rem_fills_ext = med.extension | where: "url", "http://va.gov/fhir/emi/StructureDefinition/emi-remaining-fills" | first %}
 "remainingFills": "{{ rem_fills_ext.valueUnsignedInt }}",
+{% comment %}
+  patientCounseled: true if medication has supportingInformation pointing to a Procedure
+  with code 967006 (Medication education) and status "completed",
+  false if status is "not-done", otherwise not populated
+{% endcomment %}
+{% assign counseling_status = "" %}
+{% for supportInfo in med.supportingInformation %}
+  {% assign ref = supportInfo.reference %}
+  {% for proc in procedures %}
+    {% assign proc_ref1 = "Procedure/" | append: proc.id %}
+    {% assign proc_ref2 = "urn:uuid:" | append: proc.id %}
+    {% if ref == proc_ref1 or ref == proc_ref2 %}
+      {% for coding in proc.code.coding %}
+        {% if coding.code == "967006" %}
+          {% if proc.status == "completed" %}
+            {% assign counseling_status = "true" %}
+          {% elsif proc.status == "not-done" %}
+            {% assign counseling_status = "false" %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+{% if counseling_status != "" %}
+"patientCounseled": "{{ counseling_status }}",
+{% endif %}
+{% comment %}
+  counselingUnderstood: true if medication has supportingInformation pointing to a Procedure
+  with code 967006 (Medication education) and outcome 385669000 (Successful),
+  false if outcome is 385671000 (Unsuccessful), otherwise not populated
+{% endcomment %}
+{% assign counseling_understood = "" %}
+{% for supportInfo in med.supportingInformation %}
+  {% assign ref = supportInfo.reference %}
+  {% for proc in procedures %}
+    {% assign proc_ref1 = "Procedure/" | append: proc.id %}
+    {% assign proc_ref2 = "urn:uuid:" | append: proc.id %}
+    {% if ref == proc_ref1 or ref == proc_ref2 %}
+      {% for coding in proc.code.coding %}
+        {% if coding.code == "967006" %}
+          {% for outcome_coding in proc.outcome.coding %}
+            {% if outcome_coding.code == "385669000" %}
+              {% assign counseling_understood = "true" %}
+            {% elsif outcome_coding.code == "385671000" %}
+              {% assign counseling_understood = "false" %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+{% if counseling_understood != "" %}
+"counselingUnderstood": "{{ counseling_understood }}",
+{% endif %}
+{% comment %}
+  orderingProviderName and orderingProviderDegree: from med.requester → Practitioner
+{% endcomment %}
+{% assign provider_name = "" %}
+{% assign provider_degree = "" %}
+{% if med.requester.reference %}
+  {% assign requester_ref = med.requester.reference %}
+  {% for prac in practitioners %}
+    {% assign prac_ref1 = "Practitioner/" | append: prac.id %}
+    {% assign prac_ref2 = "urn:uuid:" | append: prac.id %}
+    {% if requester_ref == prac_ref1 or requester_ref == prac_ref2 %}
+      {% assign prac_name = prac.name | first %}
+      {% if prac_name %}
+        {% assign given_names = prac_name.given | join: " " %}
+        {% assign provider_name = given_names | append: " " | append: prac_name.family %}
+      {% endif %}
+      {% assign prac_qual = prac.qualification | first %}
+      {% if prac_qual.code.text %}
+        {% assign provider_degree = prac_qual.code.text %}
+      {% elsif prac_qual.code.coding[0].display %}
+        {% assign provider_degree = prac_qual.code.coding[0].display %}
+      {% elsif prac_qual.code.coding[0].code %}
+        {% assign provider_degree = prac_qual.code.coding[0].code %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+{% if provider_name != "" %}
+"orderingProviderName": "{{ provider_name }}",
+{% endif %}
+{% if provider_degree != "" %}
+"orderingProviderDegree": "{{ provider_degree }}",
+{% endif %}
+{% comment %}
+  pharmacyName, pharmacyPhone, pharmacyAddress: from MedicationRequest.dispenseRequest.performer → Organization
+{% endcomment %}
+{% assign pharmacy_name = "" %}
+{% assign pharmacy_phone = "" %}
+{% assign pharmacy_address = "" %}
+{% if med.dispenseRequest.performer.reference %}
+  {% assign performer_ref = med.dispenseRequest.performer.reference %}
+  {% for org in organizations %}
+    {% assign org_ref1 = "Organization/" | append: org.id %}
+    {% assign org_ref2 = "urn:uuid:" | append: org.id %}
+    {% if performer_ref == org_ref1 or performer_ref == org_ref2 %}
+      {% assign pharmacy_name = org.name %}
+      {% for tel in org.telecom %}
+        {% if tel.system == "phone" and pharmacy_phone == "" %}
+          {% assign pharmacy_phone = tel.value %}
+        {% endif %}
+      {% endfor %}
+      {% assign addr = org.address | first %}
+      {% if addr %}
+        {% assign addr_lines = addr.line | join: ", " %}
+        {% assign pharmacy_address = addr_lines | append: ", " | append: addr.city | append: ", " | append: addr.state | append: " " | append: addr.postalCode %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+{% if pharmacy_name != "" %}
+"pharmacyName": "{{ pharmacy_name }}",
+{% endif %}
+{% if pharmacy_phone != "" %}
+"pharmacyPhone": "{{ pharmacy_phone }}",
+{% endif %}
+{% if pharmacy_address != "" %}
+"pharmacyAddress": "{{ pharmacy_address }}",
+{% endif %}

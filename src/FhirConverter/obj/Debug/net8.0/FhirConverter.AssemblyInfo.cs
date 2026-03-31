@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FhirConverter")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2d0be81d0812d4658f1e1e3d3c42f782628172cc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fd76e1c155d609a359ff7911683edc32d16095c0")]
 [assembly: System.Reflection.AssemblyProductAttribute("FhirConverter")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FhirConverter")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

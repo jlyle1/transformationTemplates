@@ -1,7 +1,14 @@
 {
   "permissions": {
     "allow": [
-      "Bash(dotnet run)"
+      "Bash(dotnet run)",
+      "Bash(powershell.exe -ExecutionPolicy Bypass -File score-piqi.ps1 Bundle-medication-bundle-example_piqi.json Bundle-medication-bundle-example_score.json)",
+      "Bash(powershell.exe -ExecutionPolicy Bypass -Command \"& { ./score-piqi.ps1 -inputFileName ''Bundle-medication-bundle-example_piqi.json'' -outputFileName ''test_score.json'' -modelMnemonic ''PAT_CLINICAL_V1'' -rubricMnemonic ''USCDI_V3'' }\")",
+      "Bash(dotnet run:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(taskkill //F //PID 37120)",
+      "Bash(timeout /t 5 /nobreak)",
+      "Bash(taskkill //F //PID 30404)"
     ]
   }
 }
